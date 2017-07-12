@@ -23,3 +23,9 @@ class ViewController: UIViewController {
 
 }
 
+
+//the git has been initialized.
+//update the alamofire pod
+    //in podfile - check github for alamofire installation instructions for podfile.
+    //pod install instead of podupdate in terminal
+    
