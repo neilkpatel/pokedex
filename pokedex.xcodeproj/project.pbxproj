@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B0198F71F168BB000894604 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6B0198F61F168BB000894604 /* pokemon.csv */; };
 		6B1267AD1F16825400D5D67D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1267AC1F16825400D5D67D /* AppDelegate.swift */; };
 		6B1267AF1F16825400D5D67D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1267AE1F16825400D5D67D /* ViewController.swift */; };
 		6B1267B21F16825400D5D67D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B1267B01F16825400D5D67D /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B0198F61F168BB000894604 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 		6B1267A91F16825400D5D67D /* pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B1267AC1F16825400D5D67D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B1267AE1F16825400D5D67D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				6B1267AE1F16825400D5D67D /* ViewController.swift */,
 				6B1267B01F16825400D5D67D /* Main.storyboard */,
 				6B1267B31F16825400D5D67D /* Assets.xcassets */,
+				6B0198F61F168BB000894604 /* pokemon.csv */,
 				6B1267B51F16825400D5D67D /* LaunchScreen.storyboard */,
 				6B1267B81F16825400D5D67D /* Info.plist */,
 			);
@@ -234,6 +237,7 @@
 			files = (
 				6B1267B71F16825400D5D67D /* LaunchScreen.storyboard in Resources */,
 				6B1267B41F16825400D5D67D /* Assets.xcassets in Resources */,
+				6B0198F71F168BB000894604 /* pokemon.csv in Resources */,
 				6B1267B21F16825400D5D67D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,6 +511,7 @@
 				6B1267D31F16825400D5D67D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6B1267D41F16825400D5D67D /* Build configuration list for PBXNativeTarget "pokedexTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +520,7 @@
 				6B1267D61F16825400D5D67D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6B1267D71F16825400D5D67D /* Build configuration list for PBXNativeTarget "pokedexUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +529,7 @@
 				6B1267D91F16825400D5D67D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
