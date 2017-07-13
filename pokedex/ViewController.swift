@@ -13,6 +13,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     @IBOutlet weak var collection: UICollectionView!
     
+    var pokemon = [Pokemon]() //once viewDidLoad is called, this should be filled with 718 Pokemons!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,13 +22,49 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collection.dataSource = self
         collection.delegate = self
         
+        parsePokemonCSV()
+        
     }
+//want to create function that will parse pokemon data and create it in format that is useful to us. Need path to file:
+    
+    func parsePokemonCSV() {
+        let path = Bundle.main.path(forResource: "pokemon", ofType: "csv")! //unwrapped!
+        
+//parser can throw error, so need do / catch because it can throw an error
+        do {
+            let csv = try CSV(contentsOfURL: path)
+            let rows = csv.rows
+            print(rows)
+            
+//THIS IS A GREAT LOOP! Append to Array
+            for row in rows {
+                
+                let pokeID = Int(row["id"]!)! //! ?
+                let name = row["identifier"]! //! ?
+                
+                let poke = Pokemon(name: name, pokedexId: pokeID)
+                pokemon.append(poke)
+            }
+            
+//need to loop through each row, get pokemon name, id and add it to a new array via append
+        
+        
+            
+            
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+
+    
+    
 //you don't want app to load all 718 cells (will crash), so it'll load only how many will be displayed at a time. so when you scroll off, those that go off screen dequeue and you pick up another cell. if we can grab one dequeue do it, otherwise return empty generic cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as? PokeCell { //this is where you used the reuseidentifier
             
-            let pokemon = Pokemon(name: "Pokemon", pokedexId: indexPath.row)
-        cell.configureCell(pokemon: pokemon) //pass in pokemon object that you just created. 
+            //let pokemon = Pokemon(name: "Pokemon", pokedexId: indexPath.row)
+            let poke = pokemon[indexPath.row]
+            cell.configureCell(poke) //pass in pokemon object that you just created.
             
             return cell
     } else {
@@ -39,7 +77,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return pokemon.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

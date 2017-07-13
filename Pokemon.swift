@@ -11,8 +11,8 @@ import Foundation
 
 class Pokemon {
     
-    private var _name: String! //we know it's going to exist, so unwrap
-    private var _pokedexId: Int!
+    fileprivate var _name: String! //we know it's going to exist, so unwrap
+    fileprivate var _pokedexId: Int!
     
     var name: String! { //these are getters
         

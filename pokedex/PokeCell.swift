@@ -30,7 +30,7 @@ class PokeCell: UICollectionViewCell {
     
     //function to call when you want to update contents of each contentview cell
     //pass in pokemon of type Pokemon
-    func configureCell(pokemon: Pokemon) {
+    func configureCell(_ pokemon: Pokemon) {
         self.pokemon = pokemon
         nameLbl.text = self.pokemon.name.capitalized
         thumbImg.image = UIImage(named: "\(self.pokemon.pokedexId)")
