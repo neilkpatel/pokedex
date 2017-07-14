@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation //when working with audio, import this
 
 //need delegates for CollectionView, Delegate = this class will be delegate for CollectionView, DataSource = this class will hold data for CollectionView, FlowLayout = will set settings for layout for CollectionView
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -14,6 +15,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var collection: UICollectionView!
     
     var pokemon = [Pokemon]() //once viewDidLoad is called, this should be filled with 718 Pokemons!
+    
+    var musicPlayer: AVAudioPlayer! // music player variable, of type AVAudiPlayer, not ready to create it yet
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +26,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collection.delegate = self
         
         parsePokemonCSV()
+        initAudio()
         
     }
+    //function to get audio ready
+    func initAudio() {
+        let path = Bundle.main.path(forResource: "music", ofType: "mp3")!
+        
+        do {
+            
+            musicPlayer = try AVAudioPlayer(contentsOf: URL(string: path)!)
+            musicPlayer.prepareToPlay() //gets it ready to play
+            musicPlayer.numberOfLoops = -1 // loop continuously
+            musicPlayer.play()
+            
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+    }
+    
+    
 //want to create function that will parse pokemon data and create it in format that is useful to us. Need path to file:
     
     func parsePokemonCSV() {
@@ -88,6 +110,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return CGSize(width: 105, height: 105) //this is what we have it set for in the storyboards. defines size of cells.
     }
 
+    @IBAction func musicBtnPressed(_ sender: UIButton) {
+        if musicPlayer.isPlaying {
+            musicPlayer.pause()
+            sender.alpha = 0.2
+            
+        } else {
+            musicPlayer.play()
+            sender.alpha = 1.0
+        }
+    }
 }
 
 
