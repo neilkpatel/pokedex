@@ -200,6 +200,14 @@ class Pokemon {
                         if let uri = evolutions[0]["resource_uri"] as? String {
                             let newStr = uri.replacingOccurrences(of: "api/v1/pokemon", with: "")
                             let nextEvoId = newStr.replacingOccurrences(of: "/", with: "")
+                            self._nextEvolutionId = nextEvoId
+                            if let lvlExists = evolutions[0]["level"] {
+                                if let lvl = lvlExists as? Int {
+                                    self._nextEvolutionLevel = "\(lvl)"
+                                }
+                            } else {
+                                self._nextEvolutionLevel = ""
+                            }
                         }
                     }
                 }
