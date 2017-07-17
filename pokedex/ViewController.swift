@@ -62,7 +62,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         do {
             let csv = try CSV(contentsOfURL: path)
             let rows = csv.rows
-            print(rows)
+            //print(rows)
             
 //THIS IS A GREAT LOOP! Append to Array
             for row in rows {
@@ -195,8 +195,5 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 }
 
 
-//the git has been initialized.
-//update the alamofire pod
-    //in podfile - check github for alamofire installation instructions for podfile.
-    //pod install instead of podupdate in terminal
-    
+//? still don't understand self.delegate
+// 
